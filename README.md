@@ -1,58 +1,40 @@
+
 ---
 
-### Description
+## NLP Tools Flask Application
 
-This Flask web application includes a new feature to generate text using the BERT model. The `generate_text_bert` function utilizes the Hugging Face Transformers library to perform masked language modeling, generating text based on a provided prompt.
+This Flask application serves as a web interface for various Natural Language Processing (NLP) tasks using Hugging Face's Transformers library. The application allows users to interact with different NLP models for text generation, translation, summarization, and more.
 
-### How to Use
+### Key Features:
 
-1. **Integration Steps:**
-   - Import the necessary libraries, including Flask and Transformers, into your Python environment.
-   - Define the `generate_text_bert` function within your Flask app or Python script.
-   - Call the `generate_text_bert` function with a prompt to generate text using the BERT model.
+- **GPT-3 Text Generation:** Generate text using the GPT-3 model from EleutherAI.
+- **GPT-2 Text Generation:** Generate text using the GPT-2 model.
+- **Translation Services:** Translate text between various languages, including English, French, Hindi, Spanish, German, and Chinese.
+- **Summarization:** Generate summaries of long text inputs using the T5 model.
+- **BERT Mask Filling:** Fill in masked tokens using BERT for text completion.
 
-2. **Flask App Integration:**
-   - Ensure that your Flask app includes the `generate_text_bert` function.
-   - Modify your Flask routes to handle POST requests for BERT text generation.
-   - Create a form in your HTML template to capture the user's prompt input and model type selection.
-   - Display the generated text on the frontend using the appropriate template variables.
+### Usage:
 
-3. **Example Code Snippet:**
-   ```python
-   from flask import Flask, render_template, request
-   from transformers import pipeline
+1. Select the desired NLP task from the dropdown menu.
+2. Enter your input text or prompt in the provided text area.
+3. Click the "Generate Text" button to obtain the results.
 
-   app = Flask(__name__)
+### Installation and Setup:
 
-   # Function to generate text using BERT
-   def generate_text_bert(prompt):
-       generator = pipeline('fill-mask', model='bert-base-uncased')
-       generated_text = generator(prompt)
-       generated_sequences = [result['sequence'] for result in generated_text]
-       return generated_sequences
+1. Clone or download the repository to your local machine.
+2. Install the required dependencies using `pip install -r requirements.txt`.
+3. Run the Flask application using `python app.py`.
+4. Access the application in your web browser at `http://localhost:5000`.
 
-   @app.route('/', methods=['GET', 'POST'])
-   def home():
-       generated_text = ''
-       if request.method == 'POST':
-           prompt = request.form['prompt']
-           model_type = request.form['model_type']
-           if model_type == 'BERT Text Generation':
-               generated_text = generate_text_bert(prompt)
-               return render_template('index.html', prompt=prompt, generated_text=generated_text)
-       return render_template('index.html', generated_text=generated_text)
+### Technologies Used:
 
-   if __name__ == '__main__':
-       app.run(debug=True)
-   ```
+- Python
+- Flask
+- Hugging Face's Transformers Library
+- HTML/CSS (for the frontend)
 
-4. **Dependencies:**
-   - Python 3.x
-   - Flask
-   - Hugging Face Transformers
+### Contributing:
 
-5. **Usage Example:**
-   - Launch the Flask app locally.
-   - Access the web interface, enter a prompt, and select 'BERT Text Generation' to generate text using the BERT model.
+Contributions to this project are welcome. If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
 ---
