@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Tools</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body style="background-color: #6ea6ec; font-family: 'Segoe UI', sans-serif; text-align: center;">
+    <div class="background">
+        <div class="container" style="max-width: 897px; margin: 50px auto; padding: 20px; background-color: rgba(0, 0, 0, 0.7); color: #ffffff;border-radius: 5px; box-shadow: 0 0 10px rgba(245, 244, 244, 0.1);">
+            <h1 style="color: #ffffff; margin-bottom: 20px;">NLP Tools (Open AI) & (Google BERT)</h1>
+            <p style="font-size: 16px; margin-bottom: 20px;">Welcome to the NLP Tools project! Select the tool you want to use, enter your prompt or text, and click the button to get results. </p>
+            
+            <form method="POST" action="/" style="margin-bottom: 20px;">
+                <label for="prompt" style="font-weight: bold; color: #ffffff;">Enter your prompt or text:</label><br>
+                <input type="text" id="prompt" name="prompt" placeholder="Enter Your Text" style="width: 87%; padding: 51px; margin-top: 5px; margin-bottom: 10px; border-radius: 3px; border: 1px solid #ccc; color: #0d0c0c;">
+                <br>
+                <label for="model_type" style="font-weight: bold; color: #ffffff;">Select Model or Tool Type:</label><br>
+                <select id="model_type" name="model_type" required style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 10px; border-radius: 3px; border: 1px solid #ccc; color: #090909;">
+                    <option value="summarization">Summarization</option>
+                    <option value="gpt2">GPT-2 Text Generation</option>
+                    <option value="gpt3">GPT-3 Text Generation</option>
+                    <option value="Text_bert">Generate Mask Text (BERT)</option>
+                    <option value="translation_en_to_fr">Translation: English to French</option>
+                    <option value="translation_en_to_hi">Translation: English to Hindi</option>
+                    <option value="translation_hi_to_en">Translation: Hindi to English</option>
+                    <option value="translation_es_to_en">Translation: Spanish to English</option>
+                    <option value="translation_de_to_en">Translation: German to English</option>
+                    <option value="translation_fr_to_en">Translation: French to English</option>
+                    <option value="translation_zh_to_en">Translation: Chinese to English</option>
+                    
+                </select>
+                <br>
+                <label for="max_length" style="font-weight: bold; color: #ffffff;">Maximum Length (for Text Generation or Summarization):</label><br>
+                <input type="number" id="max_length" name="max_length" min="1" max="1000" value="200" required style="width: 97%; padding: 10px; margin-top: 5px; margin-bottom: 10px; border-radius: 3px; border: 1px solid #ccc; color: #111111;">
+                <br>
+                <button type="submit" style="padding: 10px 20px; background-color: #302ebd; color: #ffffff; border: none; border-radius: 3px; cursor: pointer; transition: background-color 0.3s;">Generate Text</button>
+            </form>
+            {% if prompt %}
+            <div class="generated-text" style="margin-top: 20px; border-top: 1px solid #ccc; padding-top: 20px; text-align: left;">
+                <h2 style="color: #ffffff; margin-bottom: 10px;">Generated Text:</h2>
+                <p class="generated_text" style="white-space: pre-wrap; font-size: 16px; line-height: 1.6;">{{ generated_text }}</p>
+            </div>
+            {% endif %}
+            <div class="social-links">
+                <a href="https://www.instagram.com/end_of_night.17j03/" target="_blank">
+                    <img src="../static/css/img/instagram.jpg" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/nishantraghuwanshi.singh.5" target="_blank">
+                    <img src="../static/css/img/fb.png" alt="Facebook">
+                </a>
+                <a href="https://www.linkedin.com/in/nishant-raghuwanshi-1509a724a/" target="_blank">
+                    <img src="../static/css/img/linkdin.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/Nishant2018" target="_blank">
+                    <img src="../static/css/img/github.png" alt="GitHub">
+                </a>
+                <a href="https://www.kaggle.com/endofnight17j03" target="_blank">
+                    <img src="../static/css/img/Kaggle_logo.png" alt="Kaggle">
+                </a>
+            </div>
+            <div class="footer">
+                <p>&copy; 2024 Your Website. All rights reserved. | <a href="/terms" style="color: #ffffff;">Terms of Use</a> | <a href="/privacy" style="color: #ffffff;">Privacy Policy</a></p>
+                <div class="contact-section" style="margin-top: 30px;">
+                    <h3 style="color: #ffffff; margin-bottom: 10px;">Contact Us</h3>
+                    <p style="font-size: 14px; line-height: 1.5; color: #ffffff;">For inquiries or feedback, please contact our team at <a href="mailto:nishantraghuwanshi2018@gmail.com" style="color: #ffffff; text-decoration: underline;">nishantraghuwanshi2018@gmail.com</a>.</p>
+
+                </div>
+                
+            </div>
+            <div class="additional-info" style="margin-top: 30px;">
+                <h3 style="color: #ffffff; margin-bottom: 10px;">Additional Information</h3>
+                <p style="font-size: 14px; line-height: 1.5;">Explore our NLP Tools project to generate and analyze text using state-of-the-art models. Choose from text generation, translation, or summarization tools to experience the power of natural language processing.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
