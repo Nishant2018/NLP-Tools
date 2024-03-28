@@ -1,6 +1,4 @@
-
----
-
+```markdown
 ## NLP Tools Flask Application
 
 This Flask application serves as a web interface for various Natural Language Processing (NLP) tasks using Hugging Face's Transformers library. The application allows users to interact with different NLP models for text generation, translation, summarization, and more.
@@ -15,16 +13,29 @@ This Flask application serves as a web interface for various Natural Language Pr
 
 ### Usage:
 
+```python
+from flask import Flask, render_template, request
+from transformers import pipeline
+import logging
+
+# Your Flask app setup and functions here
+# Make sure to include code snippets for setting up routes, handling requests, and calling NLP functions.
+```
+
 1. Select the desired NLP task from the dropdown menu.
 2. Enter your input text or prompt in the provided text area.
 3. Click the "Generate Text" button to obtain the results.
 
 ### Installation and Setup:
 
-1. Clone or download the repository to your local machine.
-2. Install the required dependencies using `pip install -r requirements.txt`.
-3. Run the Flask application using `python app.py`.
-4. Access the application in your web browser at `http://localhost:5000`.
+```bash
+git clone https://github.com/your/repository.git
+cd repository
+pip install -r requirements.txt
+python app.py
+```
+
+Access the application in your web browser at `http://localhost:5000`.
 
 ### Technologies Used:
 
@@ -36,5 +47,5 @@ This Flask application serves as a web interface for various Natural Language Pr
 ### Contributing:
 
 Contributions to this project are welcome. If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+```
 
----
